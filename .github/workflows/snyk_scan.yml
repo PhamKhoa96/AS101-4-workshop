@@ -30,7 +30,7 @@ jobs:
           # Ensure requirements.txt is in the workspace
           ls /github/workspace
           # Install dependencies from requirements.txt
-          # pip install -r ./web/requirements.txt
+          pip install -r ./web/requirements.txt
 
       # Step 5: Run Snyk (example for Python projects)
       - name: Run Snyk test

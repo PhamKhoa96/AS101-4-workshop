@@ -32,7 +32,12 @@ jobs:
           # Install dependencies from requirements.txt
           # pip install -r /github/workspace/requirements.txt
 
-      # Step 4: Run Snyk (example for Python projects)
+      # Step 4: check pwd
+      - name: Install dependencies
+        run: |
+          pwd
+
+      # Step 5: Run Snyk (example for Python projects)
       - name: Run Snyk test
         uses: snyk/actions/python@master
         env:

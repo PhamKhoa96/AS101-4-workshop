@@ -35,7 +35,5 @@ jobs:
       # Step 4: Run Snyk (example for Python projects)
       - name: Run Snyk test
         uses: snyk/actions/python@master
-        with:
-          args: test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

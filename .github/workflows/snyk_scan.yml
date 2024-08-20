@@ -1,0 +1,40 @@
+name: Snyk scan
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@master
+
+      # Step 2: Set up Python environment (example for Python projects)
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          # Ensure requirements.txt is in the workspace
+          ls /github/workspace
+          # Install dependencies from requirements.txt
+          pip install -r /github/workspace/requirements.txt
+
+      # Step 4: Run Snyk (example for Python projects)
+      - name: Run Snyk test
+        uses: snyk/actions/python@v1
+        with:
+          args: test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

@@ -26,7 +26,7 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          mkdir /github/workspace
+          sudo mkdir /github/workspace
           # Ensure requirements.txt is in the workspace
           ls /github/workspace
           # Install dependencies from requirements.txt
